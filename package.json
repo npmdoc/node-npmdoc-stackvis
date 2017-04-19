@@ -1,1 +1,39 @@
-{     "devDependencies": {         "stackvis": "*",         "electron-lite": "kaizhu256/node-electron-lite#alpha",         "utility2": "kaizhu256/node-utility2#alpha"     },     "name":"npmdoc-stackvis",     "homepage": "https://github.com/npmdoc/node-npmdoc-stackvis",     "repository": {         "type": "git",         "url": "https://github.com/npmdoc/node-npmdoc-stackvis.git"     },     "scripts": {         "build-ci": "utility2 shReadmeTest build_ci.sh"     },     "version": "0.0.1" }
+{
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "description": "#### api documentation for  [stackvis (v0.4.0)](https://github.com/davepacheco/node-stackvis)  [![npm package](https://img.shields.io/npm/v/npmdoc-stackvis.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-stackvis) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-stackvis.svg)](https://travis-ci.org/npmdoc/node-npmdoc-stackvis)",
+    "devDependencies": {
+        "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "stackvis": "*",
+        "utility2": "kaizhu256/node-utility2#alpha"
+    },
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmdoc/node-npmdoc-stackvis",
+    "keywords": [
+        "documentation",
+        "stackvis"
+    ],
+    "license": "MIT",
+    "main": "lib.npmdoc_stackvis.js",
+    "name": "npmdoc-stackvis",
+    "nameAlias": "npmdoc_stackvis",
+    "nameOriginal": "npmdoc-stackvis",
+    "os": [
+        "darwin",
+        "linux"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/npmdoc/node-npmdoc-stackvis.git"
+    },
+    "scripts": {
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "npm install \"kaizhu256/node-utility2#alpha\" && utility2 shDeployHeroku",
+        "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh postinstall",
+        "start": "PORT=${PORT:-8080} utility2 start test.js",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
+    },
+    "version": "0.0.1"
+}
