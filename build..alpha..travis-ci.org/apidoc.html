@@ -1,0 +1,1043 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/davepacheco/node-stackvis"
+
+    >stackvis (v0.4.0)</a>
+</h1>
+<h4>stack visualization tools</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stackvis">module stackvis</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stackvis.pipeStacks">
+            function <span class="apidocSignatureSpan">stackvis.</span>pipeStacks
+            <span class="apidocSignatureSpan">(log, instream, readercons, writer, outstream, args, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stackvis.readerLookup">
+            function <span class="apidocSignatureSpan">stackvis.</span>readerLookup
+            <span class="apidocSignatureSpan">(name)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stackvis.writerLookup">
+            function <span class="apidocSignatureSpan">stackvis.</span>writerLookup
+            <span class="apidocSignatureSpan">(name)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan"></span>stackvis</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">stackvis.</span>color</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">stackvis.</span>input_collapsed</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">stackvis.</span>input_dtrace</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">stackvis.</span>input_perf</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">stackvis.</span>input_stap</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">stackvis.</span>output_collapsed</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">stackvis.</span>output_flamegraph_d3</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">stackvis.</span>output_flamegraph_svg</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">stackvis.</span>xml</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stackvis.color">module stackvis.color</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stackvis.color.convertHsvToRgb">
+            function <span class="apidocSignatureSpan">stackvis.color.</span>convertHsvToRgb
+            <span class="apidocSignatureSpan">(h, s, v)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stackvis.input_collapsed">module stackvis.input_collapsed</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stackvis.input_collapsed.reader">
+            function <span class="apidocSignatureSpan">stackvis.input_collapsed.</span>reader
+            <span class="apidocSignatureSpan">(input, log)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stackvis.input_dtrace">module stackvis.input_dtrace</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stackvis.input_dtrace.reader">
+            function <span class="apidocSignatureSpan">stackvis.input_dtrace.</span>reader
+            <span class="apidocSignatureSpan">(input, log)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stackvis.input_perf">module stackvis.input_perf</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stackvis.input_perf.reader">
+            function <span class="apidocSignatureSpan">stackvis.input_perf.</span>reader
+            <span class="apidocSignatureSpan">(input, log)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stackvis.input_stap">module stackvis.input_stap</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stackvis.input_stap.reader">
+            function <span class="apidocSignatureSpan">stackvis.input_stap.</span>reader
+            <span class="apidocSignatureSpan">(input, log)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stackvis.output_collapsed">module stackvis.output_collapsed</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stackvis.output_collapsed.emit">
+            function <span class="apidocSignatureSpan">stackvis.output_collapsed.</span>emit
+            <span class="apidocSignatureSpan">(args, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stackvis.output_flamegraph_d3">module stackvis.output_flamegraph_d3</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stackvis.output_flamegraph_d3.emit">
+            function <span class="apidocSignatureSpan">stackvis.output_flamegraph_d3.</span>emit
+            <span class="apidocSignatureSpan">(args, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stackvis.output_flamegraph_svg">module stackvis.output_flamegraph_svg</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stackvis.output_flamegraph_svg.emit">
+            function <span class="apidocSignatureSpan">stackvis.output_flamegraph_svg.</span>emit
+            <span class="apidocSignatureSpan">(args, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stackvis.stackvis">module stackvis.stackvis</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stackvis.stackvis.pipeStacks">
+            function <span class="apidocSignatureSpan">stackvis.stackvis.</span>pipeStacks
+            <span class="apidocSignatureSpan">(log, instream, readercons, writer, outstream, args, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stackvis.stackvis.readerLookup">
+            function <span class="apidocSignatureSpan">stackvis.stackvis.</span>readerLookup
+            <span class="apidocSignatureSpan">(name)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stackvis.stackvis.writerLookup">
+            function <span class="apidocSignatureSpan">stackvis.stackvis.</span>writerLookup
+            <span class="apidocSignatureSpan">(name)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.stackvis.xml">module stackvis.xml</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.stackvis.xml.XmlEmitter">
+            function <span class="apidocSignatureSpan">stackvis.xml.</span>XmlEmitter
+            <span class="apidocSignatureSpan">(stream)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stackvis" id="apidoc.module.stackvis">module stackvis</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stackvis.pipeStacks" id="apidoc.element.stackvis.pipeStacks">
+        function <span class="apidocSignatureSpan">stackvis.</span>pipeStacks
+        <span class="apidocSignatureSpan">(log, instream, readercons, writer, outstream, args, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function pipeStacks(log, instream, readercons, writer, outstream, args, callback)
+{
+	if (typeof (args) === &#x27;function&#x27;) {
+		callback = args;
+		args = {};
+	}
+	args = args || {};
+
+	var reader = new readercons(instream, log);
+
+	collapseStacks(reader, function (err, stacks) {
+		if (err) {
+			log.error(err);
+			return;
+		}
+
+		var _args = mod_jsprim.deepCopy(args);
+		_args.stacks = stacks;
+		_args.output = outstream;
+		_args.log = log;
+		writer.emit(_args, function (err2) {
+			<span class="apidocCodeCommentSpan">/*
+			 * It&#x27;s stupid that we need to check whether we&#x27;re
+			 * writing to stdout, but this is the same thing Node&#x27;s
+			 * stream.pipe() method does, because for some reason
+			 * you can&#x27;t &#x22;end&#x22; the stdout stream.
+			 */
+</span>			if (!err2 &#x26;&#x26; !outstream._isStdio)
+				outstream.end();
+
+			callback(err2);
+		});
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+The main operation is translating from one representation to another (e.g.,
+DTrace output to a flame graph) using pipeStacks() (which requires a Bunyan
+logger):
+```javascript
+var mod_bunyan = require(&#x27;bunyan&#x27;);
+var log = new mod_bunyan({ &#x27;name&#x27;: &#x27;mytool&#x27;, &#x27;stream&#x27;: process.stderr });
+mod_stackvis.<span class="apidocCodeKeywordSpan">pipeStacks</span>(log, process.stdin, dtrace_reader, collapsed_writer,
+    process.stdout, function () { console.error(&#x27;translation finished&#x27;); });
+```
+This example instantiates a new dtrace_reader to read DTrace output from
+process.stdin and then emits the result in collapsed form to process.stdout
+through the collapsed_writer.
+
+## Adding new readers and writers
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stackvis.readerLookup" id="apidoc.element.stackvis.readerLookup">
+        function <span class="apidocSignatureSpan">stackvis.</span>readerLookup
+        <span class="apidocSignatureSpan">(name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function readerLookup(name)
+{
+	return (moduleLookup(&#x27;input&#x27;, name).reader);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+- output-flamegraph-svg.js: writes stacks as a flame graph SVG
+- output-flamegraph-d3.js: writes stacks as a flame graph HTML file using D3
+
+Client code shouldn&#x27;t load these directly.  Instead, require &#x27;stackvis&#x27; and use
+lookupReader and lookupWriter:
+```javascript
+var mod_stackvis = require(&#x27;stackvis&#x27;);
+var dtrace_reader = mod_stackvis.<span class="apidocCodeKeywordSpan">readerLookup</span>(&#x27;dtrace&#x27;);
+var collapsed_writer = mod_stackvis.writerLookup(&#x27;collapsed&#x27;);
+```
+The main operation is translating from one representation to another (e.g.,
+DTrace output to a flame graph) using pipeStacks() (which requires a Bunyan
+logger):
+```javascript
+var mod_bunyan = require(&#x27;bunyan&#x27;);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stackvis.writerLookup" id="apidoc.element.stackvis.writerLookup">
+        function <span class="apidocSignatureSpan">stackvis.</span>writerLookup
+        <span class="apidocSignatureSpan">(name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function writerLookup(name)
+{
+	return (moduleLookup(&#x27;output&#x27;, name));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+- output-flamegraph-d3.js: writes stacks as a flame graph HTML file using D3
+
+Client code shouldn&#x27;t load these directly.  Instead, require &#x27;stackvis&#x27; and use
+lookupReader and lookupWriter:
+```javascript
+var mod_stackvis = require(&#x27;stackvis&#x27;);
+var dtrace_reader = mod_stackvis.readerLookup(&#x27;dtrace&#x27;);
+var collapsed_writer = mod_stackvis.<span class="apidocCodeKeywordSpan">writerLookup</span>(&#x27;collapsed&#x27;);
+```
+The main operation is translating from one representation to another (e.g.,
+DTrace output to a flame graph) using pipeStacks() (which requires a Bunyan
+logger):
+```javascript
+var mod_bunyan = require(&#x27;bunyan&#x27;);
+var log = new mod_bunyan({ &#x27;name&#x27;: &#x27;mytool&#x27;, &#x27;stream&#x27;: process.stderr });
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stackvis.color" id="apidoc.module.stackvis.color">module stackvis.color</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stackvis.color.convertHsvToRgb" id="apidoc.element.stackvis.color.convertHsvToRgb">
+        function <span class="apidocSignatureSpan">stackvis.color.</span>convertHsvToRgb
+        <span class="apidocSignatureSpan">(h, s, v)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function convertHsvToRgb(h, s, v)
+{
+	var r, g, b;
+	var i;
+	var f, p, q, t;
+
+	mod_assert.ok(h &#x3e;= 0 &#x26;&#x26; h &#x3c;= 360, &#x27;hue (&#x27; + h + &#x27;) out of range&#x27;);
+	mod_assert.ok(s &#x3e;= 0 &#x26;&#x26; s &#x3c;= 1, &#x27;saturation (&#x27; + s + &#x27;) out of range&#x27;);
+	mod_assert.ok(v &#x3e;= 0 &#x26;&#x26; v &#x3c;= 1, &#x27;value (&#x27; + v + &#x27;) out of range&#x27;);
+
+	if (s === 0) {
+		<span class="apidocCodeCommentSpan">/*
+		 * A saturation of 0.0 is achromatic (grey).
+		 */
+</span>		r = g = b = v;
+
+		return ([ Math.round(r * 255), Math.round(g * 255),
+		    Math.round(b * 255) ]);
+	}
+
+	h /= 60; // sector 0 to 5
+
+	i = Math.floor(h);
+	f = h - i; // fractional part of h
+	p = v * (1 - s);
+	q = v * (1 - s * f);
+	t = v * (1 - s * (1 - f));
+
+	switch (i) {
+		case 0:
+			r = v;
+			g = t;
+			b = p;
+			break;
+
+		case 1:
+			r = q;
+			g = v;
+			b = p;
+			break;
+
+		case 2:
+			r = p;
+			g = v;
+			b = t;
+			break;
+
+		case 3:
+			r = p;
+			g = q;
+			b = v;
+			break;
+
+		case 4:
+			r = t;
+			g = p;
+			b = v;
+			break;
+
+		default: // case 5:
+			r = v;
+			g = p;
+			b = q;
+			break;
+	}
+
+	return ([ Math.round(r * 255),
+	    Math.round(g * 255), Math.round(b * 255) ]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+	var hratio = depth / this.fge_maxdepth;
+	var sratio = samples / this.fge_depthsamples[depth];
+
+	var rh = h + hratio * hplus;
+	var rs = (s + sratio * splus) / 100;
+	var rv = (v + hratio * vplus) / 100;
+	var rgb = mod_color.<span class="apidocCodeKeywordSpan">convertHsvToRgb</span>(rh, rs, rv);
+
+	return (&#x27;rgb(&#x27; + rgb.join(&#x27;,&#x27;) + &#x27;)&#x27;);
+};
+
+FlameGraphEmitter.prototype.draw = function (callback)
+{
+	var xml = new mod_xml.XmlEmitter(this.fge_output);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stackvis.input_collapsed" id="apidoc.module.stackvis.input_collapsed">module stackvis.input_collapsed</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stackvis.input_collapsed.reader" id="apidoc.element.stackvis.input_collapsed.reader">
+        function <span class="apidocSignatureSpan">stackvis.input_collapsed.</span>reader
+        <span class="apidocSignatureSpan">(input, log)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function CollapsedStreamReader(input, log)
+{
+	var reader = this;
+
+	this.csr_log = log;
+	this.csr_linenum = 0;
+	this.csr_carrier = mod_carrier.carry(input);
+	this.csr_carrier.on(&#x27;line&#x27;, function (line) {
+		reader.csr_linenum++;
+		var match = /^(.*)\s+(\d+)$/.exec(line);
+		if (!match) {
+			log.warn(&#x27;line &#x27; + reader.csr_linenum + &#x27;: garbled&#x27;);
+			return;
+		}
+
+		reader.emit(&#x27;stack&#x27;, match[1].split(&#x27;,&#x27;),
+		    parseInt(match[2], 10));
+	});
+	this.csr_carrier.on(&#x27;end&#x27;, function () { reader.emit(&#x27;end&#x27;); });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stackvis.input_dtrace" id="apidoc.module.stackvis.input_dtrace">module stackvis.input_dtrace</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stackvis.input_dtrace.reader" id="apidoc.element.stackvis.input_dtrace.reader">
+        function <span class="apidocSignatureSpan">stackvis.input_dtrace.</span>reader
+        <span class="apidocSignatureSpan">(input, log)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function DTraceStreamReader(input, log)
+{
+	this.dsr_log = log;
+	this.dsr_linenum = 0;
+	this.dsr_stack = [];
+	this.dsr_carrier = mod_carrier.carry(input);
+	this.dsr_carrier.on(&#x27;line&#x27;, this.onLine.bind(this));
+	this.dsr_carrier.on(&#x27;end&#x27;, this.onEnd.bind(this));
+
+	mod_events.EventEmitter.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stackvis.input_perf" id="apidoc.module.stackvis.input_perf">module stackvis.input_perf</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stackvis.input_perf.reader" id="apidoc.element.stackvis.input_perf.reader">
+        function <span class="apidocSignatureSpan">stackvis.input_perf.</span>reader
+        <span class="apidocSignatureSpan">(input, log)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function PerfStreamReader(input, log)
+{
+	this.dsr_log = log;
+	this.dsr_linenum = 0;
+	this.dsr_prefix = &#x27;&#x27;;
+	this.dsr_stack = [];
+	this.dsr_carrier = mod_carrier.carry(input);
+	this.dsr_carrier.on(&#x27;line&#x27;, this.onLine.bind(this));
+	this.dsr_carrier.on(&#x27;end&#x27;, this.onEnd.bind(this));
+
+	mod_events.EventEmitter.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stackvis.input_stap" id="apidoc.module.stackvis.input_stap">module stackvis.input_stap</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stackvis.input_stap.reader" id="apidoc.element.stackvis.input_stap.reader">
+        function <span class="apidocSignatureSpan">stackvis.input_stap.</span>reader
+        <span class="apidocSignatureSpan">(input, log)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function PerfStreamReader(input, log)
+{
+	this.dsr_log = log;
+	this.dsr_linenum = 0;
+	this.dsr_addingframes = false;
+	this.dsr_prefixes = [];
+	this.dsr_stack = [];
+	this.dsr_carrier = mod_carrier.carry(input);
+	this.dsr_carrier.on(&#x27;line&#x27;, this.onLine.bind(this));
+	this.dsr_carrier.on(&#x27;end&#x27;, this.onEnd.bind(this));
+
+	mod_events.EventEmitter.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stackvis.output_collapsed" id="apidoc.module.stackvis.output_collapsed">module stackvis.output_collapsed</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stackvis.output_collapsed.emit" id="apidoc.element.stackvis.output_collapsed.emit">
+        function <span class="apidocSignatureSpan">stackvis.output_collapsed.</span>emit
+        <span class="apidocSignatureSpan">(args, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function emitCollapsed(args, callback)
+{
+	mod_assert.ok(args.stacks &#x26;&#x26; args.stacks.constructor &#x26;&#x26;
+	    args.stacks.constructor.name == &#x27;StackSet&#x27;,
+	    &#x27;required &#x22;stacks&#x22; argument must be a StackSet&#x27;);
+	mod_assert.ok(args.output &#x26;&#x26; args.output.write &#x26;&#x26;
+	    typeof (args.output.write) == &#x27;function&#x27;,
+	    &#x27;required &#x22;output&#x22; argument must be a function&#x27;);
+
+	args.stacks.eachStackByCount(function (frames, count) {
+		args.output.write(frames.join(&#x27;,&#x27;) + &#x27; &#x27; + count + &#x27;\n&#x27;);
+	});
+	callback();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		reader.csr_linenum++;
+		var match = /^(.*)\s+(\d+)$/.exec(line);
+		if (!match) {
+			log.warn(&#x27;line &#x27; + reader.csr_linenum + &#x27;: garbled&#x27;);
+			return;
+		}
+
+		reader.<span class="apidocCodeKeywordSpan">emit</span>(&#x27;stack&#x27;, match[1].split(&#x27;,&#x27;),
+		    parseInt(match[2], 10));
+	});
+	this.csr_carrier.on(&#x27;end&#x27;, function () { reader.emit(&#x27;end&#x27;); });
+}
+
+mod_util.inherits(CollapsedStreamReader, mod_events.EventEmitter);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stackvis.output_flamegraph_d3" id="apidoc.module.stackvis.output_flamegraph_d3">module stackvis.output_flamegraph_d3</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stackvis.output_flamegraph_d3.emit" id="apidoc.element.stackvis.output_flamegraph_d3.emit">
+        function <span class="apidocSignatureSpan">stackvis.output_flamegraph_d3.</span>emit
+        <span class="apidocSignatureSpan">(args, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function emitIcicleData(args, callback)
+{
+	mod_assert.ok(args.stacks &#x26;&#x26; args.stacks.constructor &#x26;&#x26;
+	    args.stacks.constructor.name == &#x27;StackSet&#x27;,
+	    &#x27;required &#x22;stacks&#x22; argument must be a StackSet&#x27;);
+	mod_assert.ok(args.output &#x26;&#x26; args.output.write &#x26;&#x26;
+	    typeof (args.output.write) == &#x27;function&#x27;,
+	    &#x27;required &#x22;output&#x22; argument must be a function&#x27;);
+	mod_assert.ok(args.log, &#x27;required &#x22;log&#x22; argument must be a logger&#x27;);
+
+	var stacks = args.stacks;
+	var output = args.output;
+	var tree = {};
+	var filecontents = {};
+
+	stacks.eachStackByStack(function (frames, count) {
+		var subtree = tree;
+		var node, i;
+
+		for (i = 0; i &#x3c; frames.length; i++) {
+			if (!subtree.hasOwnProperty(frames[i]))
+				subtree[frames[i]] = {
+				    svUnique: 0,
+				    svTotal: 0,
+				    svChildren: {}
+				};
+
+			node = subtree[frames[i]];
+			node.svTotal += count;
+			subtree = node.svChildren;
+		}
+
+		node.svUnique += count;
+	});
+
+	tree = {
+	    &#x27;&#x27;: {
+		svUnique: 0,
+		svTotal: Object.keys(tree).reduce(
+		    function (p, c) { return (p + tree[c].svTotal); }, 0),
+		svChildren: tree
+	    }
+	};
+
+	mod_vasync.forEachParallel({
+	    &#x27;inputs&#x27;: [ &#x27;icicle.css&#x27;, &#x27;icicle.js&#x27;, &#x27;icicle.htm&#x27;, &#x27;d3.v2.js&#x27; ],
+	    &#x27;func&#x27;: function (filename, stepcb) {
+		var path = mod_path.join(__dirname, &#x27;../share&#x27;, filename);
+		var key = filename.replace(/\./g, &#x27;_&#x27;);
+		mod_fs.readFile(path, function (err, contents) {
+			if (err)
+				err = new VError(err, &#x27;failed to load &#x22;%s&#x22;&#x27;,
+				    filename);
+			else
+				filecontents[key] = contents.toString(&#x27;utf8&#x27;);
+			stepcb(err);
+		});
+	    }
+	}, function (err) {
+		if (err) {
+			callback(err);
+			return;
+		}
+
+		var compiled, rendered;
+
+		filecontents[&#x27;title&#x27;] = &#x27;Flame graph&#x27;;
+		filecontents[&#x27;rawdata&#x27;] = JSON.stringify(tree, null, &#x27;\t&#x27;);
+		compiled = mod_hogan.compile(filecontents[&#x27;icicle_htm&#x27;]);
+		rendered = compiled.render(filecontents);
+		output.write(rendered);
+		callback();
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		reader.csr_linenum++;
+		var match = /^(.*)\s+(\d+)$/.exec(line);
+		if (!match) {
+			log.warn(&#x27;line &#x27; + reader.csr_linenum + &#x27;: garbled&#x27;);
+			return;
+		}
+
+		reader.<span class="apidocCodeKeywordSpan">emit</span>(&#x27;stack&#x27;, match[1].split(&#x27;,&#x27;),
+		    parseInt(match[2], 10));
+	});
+	this.csr_carrier.on(&#x27;end&#x27;, function () { reader.emit(&#x27;end&#x27;); });
+}
+
+mod_util.inherits(CollapsedStreamReader, mod_events.EventEmitter);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stackvis.output_flamegraph_svg" id="apidoc.module.stackvis.output_flamegraph_svg">module stackvis.output_flamegraph_svg</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stackvis.output_flamegraph_svg.emit" id="apidoc.element.stackvis.output_flamegraph_svg.emit">
+        function <span class="apidocSignatureSpan">stackvis.output_flamegraph_svg.</span>emit
+        <span class="apidocSignatureSpan">(args, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function emitFlameGraph(args, callback)
+{
+	var emitter = new FlameGraphEmitter(args);
+	emitter.run(callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		reader.csr_linenum++;
+		var match = /^(.*)\s+(\d+)$/.exec(line);
+		if (!match) {
+			log.warn(&#x27;line &#x27; + reader.csr_linenum + &#x27;: garbled&#x27;);
+			return;
+		}
+
+		reader.<span class="apidocCodeKeywordSpan">emit</span>(&#x27;stack&#x27;, match[1].split(&#x27;,&#x27;),
+		    parseInt(match[2], 10));
+	});
+	this.csr_carrier.on(&#x27;end&#x27;, function () { reader.emit(&#x27;end&#x27;); });
+}
+
+mod_util.inherits(CollapsedStreamReader, mod_events.EventEmitter);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stackvis.stackvis" id="apidoc.module.stackvis.stackvis">module stackvis.stackvis</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stackvis.stackvis.pipeStacks" id="apidoc.element.stackvis.stackvis.pipeStacks">
+        function <span class="apidocSignatureSpan">stackvis.stackvis.</span>pipeStacks
+        <span class="apidocSignatureSpan">(log, instream, readercons, writer, outstream, args, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function pipeStacks(log, instream, readercons, writer, outstream, args, callback)
+{
+	if (typeof (args) === &#x27;function&#x27;) {
+		callback = args;
+		args = {};
+	}
+	args = args || {};
+
+	var reader = new readercons(instream, log);
+
+	collapseStacks(reader, function (err, stacks) {
+		if (err) {
+			log.error(err);
+			return;
+		}
+
+		var _args = mod_jsprim.deepCopy(args);
+		_args.stacks = stacks;
+		_args.output = outstream;
+		_args.log = log;
+		writer.emit(_args, function (err2) {
+			<span class="apidocCodeCommentSpan">/*
+			 * It&#x27;s stupid that we need to check whether we&#x27;re
+			 * writing to stdout, but this is the same thing Node&#x27;s
+			 * stream.pipe() method does, because for some reason
+			 * you can&#x27;t &#x22;end&#x22; the stdout stream.
+			 */
+</span>			if (!err2 &#x26;&#x26; !outstream._isStdio)
+				outstream.end();
+
+			callback(err2);
+		});
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+The main operation is translating from one representation to another (e.g.,
+DTrace output to a flame graph) using pipeStacks() (which requires a Bunyan
+logger):
+```javascript
+var mod_bunyan = require(&#x27;bunyan&#x27;);
+var log = new mod_bunyan({ &#x27;name&#x27;: &#x27;mytool&#x27;, &#x27;stream&#x27;: process.stderr });
+mod_stackvis.<span class="apidocCodeKeywordSpan">pipeStacks</span>(log, process.stdin, dtrace_reader, collapsed_writer,
+    process.stdout, function () { console.error(&#x27;translation finished&#x27;); });
+```
+This example instantiates a new dtrace_reader to read DTrace output from
+process.stdin and then emits the result in collapsed form to process.stdout
+through the collapsed_writer.
+
+## Adding new readers and writers
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stackvis.stackvis.readerLookup" id="apidoc.element.stackvis.stackvis.readerLookup">
+        function <span class="apidocSignatureSpan">stackvis.stackvis.</span>readerLookup
+        <span class="apidocSignatureSpan">(name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function readerLookup(name)
+{
+	return (moduleLookup(&#x27;input&#x27;, name).reader);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+- output-flamegraph-svg.js: writes stacks as a flame graph SVG
+- output-flamegraph-d3.js: writes stacks as a flame graph HTML file using D3
+
+Client code shouldn&#x27;t load these directly.  Instead, require &#x27;stackvis&#x27; and use
+lookupReader and lookupWriter:
+```javascript
+var mod_stackvis = require(&#x27;stackvis&#x27;);
+var dtrace_reader = mod_stackvis.<span class="apidocCodeKeywordSpan">readerLookup</span>(&#x27;dtrace&#x27;);
+var collapsed_writer = mod_stackvis.writerLookup(&#x27;collapsed&#x27;);
+```
+The main operation is translating from one representation to another (e.g.,
+DTrace output to a flame graph) using pipeStacks() (which requires a Bunyan
+logger):
+```javascript
+var mod_bunyan = require(&#x27;bunyan&#x27;);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.stackvis.stackvis.writerLookup" id="apidoc.element.stackvis.stackvis.writerLookup">
+        function <span class="apidocSignatureSpan">stackvis.stackvis.</span>writerLookup
+        <span class="apidocSignatureSpan">(name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function writerLookup(name)
+{
+	return (moduleLookup(&#x27;output&#x27;, name));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+- output-flamegraph-d3.js: writes stacks as a flame graph HTML file using D3
+
+Client code shouldn&#x27;t load these directly.  Instead, require &#x27;stackvis&#x27; and use
+lookupReader and lookupWriter:
+```javascript
+var mod_stackvis = require(&#x27;stackvis&#x27;);
+var dtrace_reader = mod_stackvis.readerLookup(&#x27;dtrace&#x27;);
+var collapsed_writer = mod_stackvis.<span class="apidocCodeKeywordSpan">writerLookup</span>(&#x27;collapsed&#x27;);
+```
+The main operation is translating from one representation to another (e.g.,
+DTrace output to a flame graph) using pipeStacks() (which requires a Bunyan
+logger):
+```javascript
+var mod_bunyan = require(&#x27;bunyan&#x27;);
+var log = new mod_bunyan({ &#x27;name&#x27;: &#x27;mytool&#x27;, &#x27;stream&#x27;: process.stderr });
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.stackvis.xml" id="apidoc.module.stackvis.xml">module stackvis.xml</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.stackvis.xml.XmlEmitter" id="apidoc.element.stackvis.xml.XmlEmitter">
+        function <span class="apidocSignatureSpan">stackvis.xml.</span>XmlEmitter
+        <span class="apidocSignatureSpan">(stream)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function XmlEmitter(stream)
+{
+	this.xe_stream = stream;
+	this.xe_stack = [];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	var rgb = mod_color.convertHsvToRgb(rh, rs, rv);
+
+	return (&#x27;rgb(&#x27; + rgb.join(&#x27;,&#x27;) + &#x27;)&#x27;);
+};
+
+FlameGraphEmitter.prototype.draw = function (callback)
+{
+	var xml = new mod_xml.<span class="apidocCodeKeywordSpan">XmlEmitter</span>(this.fge_output);
+
+	var fontface = this.fge_params[&#x27;font_face&#x27;];
+	var fontsize = this.fge_params[&#x27;font_size&#x27;];
+
+	var xpad = 10;
+	var ypadtop = fontsize * 4 + fontsize * 2 + 10;
+	var ypadbtm = fontsize * 2 + 10;
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
